@@ -1,0 +1,696 @@
+
+
+
+/* 全体に対して------------------------------------------------------------------- */
+.wrapper {
+        width: 90%;
+        max-width: 1170px;
+        margin-left: auto;
+        margin-right: auto;
+    
+}
+body{
+    background-color: #ededf0;
+    display: flex;
+    flex-direction: column;
+}
+main{
+    display: flex;
+    /* min-height: 100vh; */
+    margin: 0;
+    right: 0px;
+}
+*{
+    font-family: 'BIZ UDPGothic', sans-serif;
+font-family: 'Noto Sans JP', sans-serif;
+}
+
+
+
+/* ヘッダー----------------------------------------------------------------------- */
+header{
+    background-color: white;
+    height: 60px;
+    line-height: 60px;
+}
+
+.header__logo{
+    position: relative;
+    bottom: 16px;
+    left: 15px;
+}
+.site-header__wrapper {
+    display: contents;
+}
+
+.site-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.header__btn{
+    background-image: linear-gradient(90deg, rgb(65, 164, 253), rgb(14, 244, 255));
+    border-radius: 21px;
+    width: 103px;
+    height: 43px;
+    /* bottom: -10px; */
+    top: 10px;
+    position: relative;
+    color: white;
+}
+/* モーダル-------------------------------------------------------------------------- */
+/*モーダルを開くボタン*/
+.modal-open{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	cursor: pointer;
+}
+/*モーダル本体の指定 + モーダル外側の背景の指定*/
+.modal-container{
+    position: fixed;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	background: rgba(0,0,0,50%);
+	overflow: auto;
+	opacity: 0;
+	visibility: hidden;
+	transition: .3s;
+    box-sizing: border-box;
+}
+.upside{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.modal__left{
+    background-color: white;
+    width: 50%;
+}
+.modal__right{
+    background-color: white;
+    width: 50%;
+}
+.bottomside{
+    display: flex;
+    justify-content: center;
+}
+/*モーダル本体の擬似要素の指定*/
+.modal-container:before{
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	height: 100%;
+}
+/*モーダル本体に「active」クラス付与した時のスタイル*/
+.modal-container.active{
+	opacity: 1;
+	visibility: visible;
+}
+/*モーダル枠の指定*/
+.modal-body{
+	position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 784px;
+    width: 90%;
+}
+/*モーダルを閉じるボタンの指定*/
+.modal-close{
+	position: absolute;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	top: -40px;
+	right: -40px;
+	width: 40px;
+	height: 40px;
+	font-size: 40px;
+	color: #fff;
+	cursor: pointer;
+}
+/*モーダル内のコンテンツの指定*/
+.modal-content{
+	background: #fff;
+	text-align: left;
+	padding: 30px;
+    border-radius: 21px;
+}
+
+/* コンテンツ */
+.content-area{
+    display: grid;
+    flex: 1;
+    grid-template-columns: repeat(2, 1fr);
+}
+.content{
+    flex: 1;
+    background-color: #ededf0;
+    text-align: center;
+    margin: 20px 10px 0 10px;
+    height: 453px;
+}
+.study__lang__list.active{
+    display: none;
+}
+.study__content__list.active{
+    display: none;
+}
+
+/* 学習日カレンダー */
+.modal__subheading{
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* 学習日カレンダーのlabelタグ */
+.date-edit {
+  position: relative;
+}
+
+/* ボタン部分 */
+.date-edit::before {
+    background: no-repeat center center / cover #ededf0;
+    border: solid 5px #ededf0;
+    content: "";
+    position: absolute;
+    top: -8px;
+    /* right: -53px; */
+    border-radius: 11px;
+    height: 37px;
+    width: 137px;
+    opacity: 0.5;
+}
+
+/* ボックス部分 */
+input[type="date"] {
+  padding: 10px;
+  text-align: center;
+}
+
+
+input[type="date"]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+  }
+  input[type="date"]::-webkit-clear-button{
+    -webkit-appearance: none;
+  }
+
+  
+input[type="date"]::-webkit-calendar-picker-indicator{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    padding: 0;
+    background: transparent;
+    color: transparent;
+    cursor: pointer;
+    height: 50px;
+    width: 180px;
+  }
+  
+
+    /* 学習言語リスト */
+
+    .check__btn__list__box{
+        display: flex;
+    }
+    .ECM_CheckboxInput {
+        padding: 12px 8px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        border-radius: 26px;
+        width: auto;
+        height: auto;
+        
+        }
+        .ECM_CheckboxInput-Input {
+        margin: 0;
+        width: 0;
+        opacity: 0;
+        }
+        .ECM_CheckboxInput:hover{
+        background: rgba(0,0,0,.05) !important;
+        }
+        .ECM_CheckboxInput:hover > .ECM_CheckboxInput-DummyInput{
+        transform: scale(1.1);
+        }
+        .ECM_CheckboxInput-Input:focus + .ECM_CheckboxInput-DummyInput{
+        transform: scale(1.1);
+        }
+        .ECM_CheckboxInput-Input:checked + .ECM_CheckboxInput-DummyInput {
+        background: #0f71bc;
+        }
+        .ECM_CheckboxInput-Input:checked + .ECM_CheckboxInput-DummyInput::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 35%;
+        height: 4px;
+        border-radius: 2px;
+        transform: translate(-6px, 5px) rotateZ(-135deg);
+        transform-origin: 2px 2px;
+        background: #FFFFFF;
+        }
+        .ECM_CheckboxInput-Input:checked + .ECM_CheckboxInput-DummyInput::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 70%;
+        height: 4px;
+        border-radius: 2px;
+        transform: translate(-6px, 5px) rotateZ(-45deg);
+        transform-origin: 2px 2px;
+        background: #FFFFFF;
+        }
+        .ECM_CheckboxInput-DummyInput {
+        position: relative;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 32px;
+        height: 32px;
+        border: solid 2px transparent;
+        background: rgba(0, 0, 0, .15);
+        border-radius: 50%;
+        transition: all .15s linear;
+        }
+        .ECM_CheckboxInput-LabelText {
+        margin-left: 12px;
+        display: block;
+        font-size: 18px;
+        }
+
+/* モーダルの右側 */
+.study__time{
+    margin: 10px;
+}
+/* Twitter用のコメント */
+.comment__form{
+    background-color: #ededf0;
+    width: fit-content;
+}
+.study__twitter__comment{
+    margin: 10px;
+}
+.twitter__share{
+    margin: 10px;
+}
+
+
+/* モーダルの下側 */
+
+/* モーダルローディング画面 */
+.button {
+    background-image: linear-gradient(90deg, rgba(65, 164, 253, 1), rgba(14, 244, 255, 1));
+    border-radius: 21px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+    padding: 15px 71px;
+    color: white;
+  }
+  .button::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 160px;
+    height: 40px;
+    background-color: black;
+    z-index: -1;
+    left: calc(50% - 80px);
+    top: 10px;
+    opacity: 0.3;
+    filter: blur(5px);
+    transition: all 0.2s ease-out;
+  }
+  .button:hover::after {
+    opacity: 0.5;
+    filter: blur(20px);
+    transform: translatey(10px) scalex(1.2);
+  }
+  .button:active {
+    background-color: #dd4b4b;
+  }
+  .button:active::after {
+    opacity: 0.3;
+  }
+  .loading {
+    border-radius: 50px;
+    width: 50px;
+    left: calc(50vw - 25px);
+  }
+  .button.loading::after {
+    width: 40px;
+    left: 5px;
+    top: 12px;
+    border-radius: 100%;
+  }
+  .spinner {
+    display: block;
+    width: 34px;
+    height: 34px;
+    position: absolute;
+    /* top: 8px; */
+    /* left: calc(50% - 17px); */
+    background: transparent;
+    box-sizing: border-box;
+    border-top: 4px solid #0f71bc;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-radius: 100%;
+    animation: spin 0.6s ease-out infinite;
+  }
+  @keyframes spin {
+    100% {transform: rotate(360deg)}
+  }
+.load__complete__img{
+    width: 132px;
+    height: 115px;
+}
+.load__complete__box{
+    display: none;
+  }
+.button.load__complete{
+    display: none;
+}
+.load__complete__box.load__complete{
+    display: block;
+}
+.upside.load__complete{
+    display: none;
+}
+
+
+
+
+
+
+
+/* 学習時間３項目 */
+.study__hour{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.study__hour__box{
+    background-color: white;
+    border-radius: 21px;
+    width: 157px;
+    height: 120px;
+}
+.study__hour__container{
+    margin: 15px;
+}
+/* テキストに対して */
+.study__hour__subheading{
+    color: #0f71bc;
+    font-size: 21px;
+}
+.study__hour__number{
+    font-weight: bold;
+    font-size: 43px;
+}
+.study__hour__unit{
+    color: grey;
+}
+
+/* 学習時間グラフ */
+.container{
+    width: 100%;
+    height: 312px;
+}
+.study__hour__graph{
+    background-color: white;
+    border-radius: 21px;
+    margin-top: 20px;
+}
+.bar{
+    display: block;
+    width: 511px;
+    height: 312px;
+}
+
+
+/* 学習言語と学習コンテンツ */
+.subheading{
+    margin: 10px;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 20px;
+}
+.lang__and__contents__box{
+    display: flex;
+    gap: 20px;
+}
+.contents__box{
+    background-color: white;
+    border-radius: 21px;
+}
+
+
+/* 学習言語 */
+.study__lang__list{
+    position: relative;
+    display: flex;
+    width: fit-content;
+}
+.study__lang__list li{
+    margin-left: 20px;
+}
+.study__lang__list li:nth-child(1)::before {
+    content: "";
+    position: absolute;
+    /* top: 0.2em; */
+    /* left: 9px; */
+    width: 11px;
+    height: 14px;
+    background-color: #0345ec;
+    border-radius: 50%;
+    z-index: 0;
+    transform: translateX(-12px);
+}
+.study__lang__list li:nth-child(2)::before {
+    content: "";
+    position: absolute;
+    /* top: 0.2em; */
+    /* left: 9px; */
+    width: 11px;
+    height: 14px;
+    background-color: #0f71bd;
+    border-radius: 50%;
+    z-index: 0;
+    transform: translateX(-12px);
+}
+.study__lang__list li:nth-child(3)::before {
+    content: "";
+    position: absolute;
+    /* top: 0.2em; */
+    /* left: 9px; */
+    width: 11px;
+    height: 14px;
+    background-color: #20bdde;
+    border-radius: 50%;
+    z-index: 0;
+    transform: translateX(-12px);
+}
+.study__lang__list li:nth-child(4)::before {
+    content: "";
+    position: absolute;
+    /* top: 0.2em; */
+    /* left: 9px; */
+    width: 11px;
+    height: 14px;
+    background-color: #3ccefe;
+    border-radius: 50%;
+    z-index: 0;
+    transform: translateX(-12px);
+}
+
+
+/* 学習コンテンツ勉強 */
+.study__lang__list{
+    position: relative;
+    width: fit-content;
+}
+.study__lang__list li{
+    margin-left: 20px;
+}
+.study__content__list li:nth-child(1)::before {
+    content: "";
+    position: absolute;
+    /* top: 0.2em; */
+    /* left: 9px; */
+    width: 11px;
+    height: 14px;
+    background-color: #0345ec;
+    border-radius: 50%;
+    /* z-index: 0; */
+    transform: translateX(-12px);
+}
+.study__content__list li:nth-child(2)::before {
+    content: "";
+    position: absolute;
+    /* top: 0.2em; */
+    /* left: 9px; */
+    width: 11px;
+    height: 14px;
+    background-color: #0f71bd;
+    border-radius: 50%;
+    z-index: 0;
+    transform: translateX(-12px);
+}
+.study__content__list li:nth-child(3)::before {
+    content: "";
+    position: absolute;
+    /* top: 0.2em; */
+    /* left: 9px; */
+    width: 11px;
+    height: 14px;
+    background-color: #20bdde;
+    border-radius: 50%;
+    z-index: 0;
+    transform: translateX(-12px);
+}
+.study__content__list li:nth-child(4)::before {
+    content: "";
+    position: absolute;
+    /* top: 0.2em; */
+    /* left: 9px; */
+    width: 11px;
+    height: 14px;
+    background-color: #3ccefe;
+    border-radius: 50%;
+    z-index: 0;
+    transform: translateX(-12px);
+}
+
+/* ドーナツグラフ */
+
+
+
+
+
+/* フッターここから */
+
+.footer{
+    height: 70px;
+    text-align: center;
+    background-color: #eee;
+}
+.main__data{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.data__button{
+    color: #0f71bd;
+    font-weight: bold;
+}
+.data__button:hover{
+    color: #0345ec;
+}
+
+
+
+
+
+/* SPスマホ版のサイト作り */
+@media  (max-width:600px){
+    /* 学習時間3項目と学習言語、学習コンテンツの配置 */
+
+    .content-area {
+        display: grid;
+        flex: 1;
+        grid-template-columns: auto;
+    }
+    .content {
+        flex: 1;
+        background-color: #ededf0;
+        text-align: center;
+        margin-top: 20px;
+        height: auto;
+    }
+    /* 学習時間3項目 */
+    .study__hour__box {
+        background-color: white;
+        border-radius: 21px;
+        width: 96px;
+        height: auto;
+    }
+    .study__hour {
+        display: flex;
+        justify-content: unset;
+        gap: 20px;
+    }
+    /* 棒グラフ */
+    .study__hour__graph {
+        background-color: white;
+        border-radius: 21px;
+        margin-top: 20px;
+        width: fit-content;
+        height: fit-content;
+    }
+    .container {
+        width: 100%;
+        height: auto;
+    }
+    .container{
+        width: fit-content;
+        position: relative;
+        width: 364px;
+    }
+    
+    /* 学習言語と学習コンテンツ */
+    .contents__box {
+        background-color: white;
+        border-radius: 21px;
+        width: 170px;
+    }
+
+    /* 学習言語 */
+    .study__lang__list {
+        position: relative;
+        display: inline-block;
+        width: fit-content;
+    }
+
+
+    #myDoughnutChart2{
+        width: 100px;
+    }
+
+
+    /* モーダル */
+    .comment__form {
+        background-color: #ededf0;
+        width: auto;
+    }
+    .modal-close {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: -48px;
+        right: -11px;
+        width: 40px;
+        height: 40px;
+        font-size: 40px;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .container.active{
+        display: none;
+    }
+}

@@ -67,6 +67,9 @@
         ]);
       }
       $pdo->commit();
+      if(isset($_SESSION["id"])) {
+        header('Location: /admin/index.php');
+      }
     } catch(Error $e) {
       $pdo->rollBack();
     }
@@ -96,16 +99,16 @@
 
 <body>
   <?php 
-//   include(dirname(__FILE__) . '/../../components/admin/header.php');
+  include(dirname(__FILE__) . '/../../components/admin/header.php');
   ?>
   <div class="wrapper">
     <?php 
-    // include(dirname(__FILE__) . '/../../components/admin/sidebar.php'); 
+    include(dirname(__FILE__) . '/../../components/admin/sidebar.php'); 
     ?>
     <main>
       <div class="container">
         <h1 class="mb-4">問題編集</h1>
-        <form action="../../services/update_question.php" class="question-form" method="POST" enctype="multipart/form-data">
+        <form action="./edit.php" class="question-form" method="POST" enctype="multipart/form-data">
           <div class="mb-4">
             <label for="question" class="form-label">問題文:</label>
             <input type="text" name="content" id="question"
